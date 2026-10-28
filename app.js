@@ -2,7 +2,54 @@ const pages=['home','about','education','skills','experience','projects','contac
 const titles=['Home','About','Education','Skills','Experience','Projects','Contact','Resume','The Journey'];
 const icons=['⌂','♙','⚑','⚙','▣','↗','✉','▤','✧'];
 const scenePositions=['35%','50%','35%','32%','30%','32%','25%','65%','30%'];
-const projects=[{"name": "Credit Card Fraud Detection Using Hybrid Learning Algorithm", "icon": "\u25c8", "tags": ["Python", "LSTM", "Machine Learning"], "description": "Developed a machine learning-based fraud detection system using LSTM neural networks. Used Python for data preprocessing, feature engineering and model implementation. Improved detection accuracy through hybrid learning combining supervised and unsupervised methods."}];
+const projects=[
+  {
+    "name": "Credit Card Fraud Detection Using Hybrid Learning Algorithm",
+    "icon": "◈",
+    "tags": [
+      "Python",
+      "LSTM",
+      "Machine Learning"
+    ],
+    "description": "Developed a machine learning-based fraud detection system using LSTM neural networks. Used Python for data preprocessing, feature engineering and model implementation. Improved detection accuracy through hybrid learning combining supervised and unsupervised methods."
+  },
+  {
+    "name": "Active Directory Home Lab",
+    "icon": "⚙",
+    "tags": [
+      "In progress",
+      "Windows Server",
+      "Active Directory",
+      "Group Policy"
+    ],
+    "summary": "Learning to manage a Windows domain in a personal lab.",
+    "description": "Status: In progress — learning lab. Goal: build practical Windows Server and Active Directory administration skills. Planned tasks: configure a lab domain and DNS, create organizational units and test users, join a Windows client, and test password and desktop policies through Group Policy. Evidence to add after testing: setup screenshots, domain-join verification and policy results. These tasks are learning objectives; completed results have not yet been published."
+  },
+  {
+    "name": "Windows & Linux Setup Lab",
+    "icon": "⌂",
+    "tags": [
+      "In progress",
+      "Windows",
+      "Ubuntu",
+      "System Setup"
+    ],
+    "summary": "Documenting system setup and maintenance in a personal lab.",
+    "description": "Status: In progress — learning lab. Goal: document a repeatable Windows and Ubuntu setup process. Planned coverage: OS installation, updates, drivers, network configuration and basic service checks. Evidence to add after testing: environment details, setup steps, screenshots and verification results. Further work: explore Linux integration with an Active Directory lab. No completed domain integration is claimed."
+  },
+  {
+    "name": "IT Troubleshooting Case Studies",
+    "icon": "▣",
+    "tags": [
+      "Planned",
+      "Desktop Support",
+      "Troubleshooting",
+      "Documentation"
+    ],
+    "summary": "A planned collection of problem, investigation, fix and verification notes.",
+    "description": "Status: Planned — case studies are not yet published. Goal: demonstrate a clear troubleshooting process using personal lab examples or anonymized work scenarios. Planned cases: network connectivity, Outlook issues, printer problems and slow Windows systems. Each case will explain the symptoms, environment, diagnostic checks, cause, resolution and verification. Only verified results will be added; company names, user details, credentials and internal network information will be excluded."
+  }
+];
 const title=(icon,heading,sub)=>`<h1><span class="icon">${icon}</span> ${heading}</h1><p class="subtitle">${sub}</p>`;
 const tags=a=>`<div class="tags">${a.map(t=>`<span>${t}</span>`).join('')}</div>`;
 const timeline=items=>`<div class="glass timeline">${items.map(([h,p,d])=>`<article><h3>${h}</h3><p>${p}</p><p>${d}</p></article>`).join('')}</div>`;
@@ -12,7 +59,7 @@ const contents=[
 `<section class="right-panel">${title('⚑','Education','My Academic Journey')}${timeline([['B.Tech — Information Technology','2020 – 2024','Mookambigai College of Engineering'],['HSC (Class XII)','2020','Sir Sivaswami Ayyar School'],['SSLC (Class X)','2018','Sinna Rani High School']])}</section><div class="script quote">Knowledge<br>builds the future…</div>`,
 `<section class="right-panel resume-scroll">${title('⚙','Skills','Technologies I Work With')}<div class="glass skills">${[['IT Support','Desktop & end user support, hardware & software troubleshooting, system maintenance, printers and networks'],['Operating Systems','Windows 10 / 11, OS installation & imaging, driver installation'],['Microsoft Tools','Office 365, Outlook, Teams, Remote Desktop'],['ITSM / Ticketing','Incident & SLA management, root cause analysis, ticket logging, escalation and knowledge-base documentation'],['Development / Scripting','Python, SQL Server, HTML, CSS'],['Currently Learning','Azure Fundamentals, AWS Cloud']].map(([n,d])=>`<div class="skill"><div class="skill-label"><span>${n}</span></div><p class="skill-detail">${d}</p></div>`).join('')}</div><div class="glass certifications"><h3>Certifications</h3><p>Python for Data Science — NPTEL SWAYAM</p><p>Front-End Development — Infosys Springboard</p><p>SQL Fundamentals — Cognitive Class</p></div></section>`,
 `<section class="right-panel resume-scroll">${title('▣','Experience',"Where I've Worked")}<div class="glass timeline"><article><h3>XYMA Analytics</h3><p>Current company · Present</p></article><article><h3>IT Support Engineer</h3><p>Skypro Technology Private Limited</p><p>June 2025 – July 2026 · Chennai, Tamil Nadu</p><ul class="responsibilities"><li>Provided onsite support for hardware, software, OS, printer and network issues.</li><li>Installed, configured and maintained Windows 10/11 and business applications.</li><li>Diagnosed system and application issues; escalated to L2 when needed.</li><li>Supported Office 365, Outlook, Teams and Remote Desktop users.</li><li>Logged incidents, maintained documentation and met SLA targets.</li><li>Performed preventive maintenance and performance optimization on desktops, laptops and peripherals.</li><li>Maintained the internal knowledge base and coordinated with teams for quick resolution.</li></ul></article></div><p class="status">Customer issue resolution · Team collaboration · Documentation · Communication</p></section><div class="script quote">Experience<br>builds confidence…</div>`,
-`<section class="right-panel">${title('↗','Projects','Ideas to Real Solutions')}<div class="projects">${projects.map((p,i)=>`<article class="glass project"><div class="project-art">${p.icon}</div><div><h3>${p.name}</h3>${tags(p.tags)}<button class="small-btn" data-project="${i}">View Details ↗</button></div></article>`).join('')}</div><div class="glass certifications"><h3>Research Achievement</h3><p>Presented a research paper at ICCAST’24 — International Conference on Communication, AI, Security and Technology.</p></div></section><div class="script quote">Turning ideas<br>into reality…</div>`,
+`<section class="right-panel resume-scroll">${title('↗','Projects','Practical IT Projects & Research')}<p class="status">Building hands-on IT support skills. Lab work and planned case studies are labelled below; evidence will be added as each task is verified.</p><div class="projects">${projects.map((p,i)=>`<article class="glass project"><div class="project-art">${p.icon}</div><div><h3>${p.name}</h3>${tags(p.tags)}${p.summary?`<p class="status">${p.summary}</p>`:""}<button class="small-btn" data-project="${i}">View Details ↗</button></div></article>`).join('')}</div><div class="glass certifications"><h3>Research Achievement</h3><p>Presented a research paper at ICCAST’24 — International Conference on Communication, AI, Security and Technology.</p></div></section><div class="script quote">Turning ideas<br>into reality…</div>`,
 `<section class="right-panel" style="width:49%" id="contact-panel">${title('✉','Contact',"Let's Connect")}<div class="contact-grid"><div class="glass contact-card"><div class="contact-item"><strong>✉ &nbsp; Email</strong><small><a href="mailto:Praveenkumarp1412@gmail.com">Praveenkumarp1412@gmail.com</a></small></div><div class="contact-item"><strong>♧ &nbsp; Phone</strong><small><a href="tel:+918940126921">+91 8940126921</a></small></div><div class="contact-item"><strong>⌖ &nbsp; Location</strong><small>Chennai, Tamil Nadu</small></div><div class="contact-item"><strong>⌘ &nbsp; Portfolio</strong><small><a href="https://praveenpk1412.github.io/praveeninfo/" target="_blank" rel="noopener">praveenpk1412.github.io/praveeninfo/ ↗</a></small></div></div><form class="glass contact-card" id="contact-form"><h3>Draft a Message</h3><label for="sender">Your name</label><input id="sender" name="sender" autocomplete="name" placeholder="Your name" required><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label for="message">Your message</label><textarea id="message" name="message" placeholder="Let's build something together…" required></textarea><button class="primary" type="submit">Open Email Draft ↗</button><div class="status" id="form-status">Opens your email app with a draft addressed to Praveen. Review it there before sending.</div></form></div></section><div class="script quote">Good ideas<br>start with a conversation…</div>`,
 `<section>${title('▤','Resume','My journey, in one document')}<div class="resume"><span class="label">THE NEXT CHAPTER</span><h2 style="margin:24px 0 8px">PRAVEEN KUMAR P</h2><p>IT Support Engineer</p><hr style="border:0;border-top:1px solid #c9cdd0;margin:25px 0"><p>Technology. Curiosity. Continuous learning.</p><p>Desktop support, Windows systems, troubleshooting and IT infrastructure. View my education, experience, project and certifications.</p><a class="primary" href="assets/Praveen-Kumar-Resume.pdf" download="Praveen-Kumar-Resume.pdf">↓ Download Resume PDF</a><p style="font-size:10px;margin:15px 0 0">Original résumé · PDF</p></div></section>`,
 `<section class="ending"><h1 class="script"><span>Dream</span><span style="color:#8fdaf6">Learn</span><span style="color:#a4e0b6">Build</span><span style="color:#ffd07b">Grow</span></h1><p>Thanks for visiting my portfolio!</p><a href="#home" class="small-btn">Back to the beginning ↻</a><div class="script signature">Praveen</div></section>`];
